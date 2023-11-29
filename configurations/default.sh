@@ -9,5 +9,10 @@ source_dir="$script_dir/../source"
 build_dir="$script_dir/../build/$config"
 install_dir="$script_dir/../install/$config"
 
-cmake -S $source_dir -B $build_dir -DCMAKE_INSTALL_PREFIX=$install_dir -G Ninja
-cmake --build $build_dir --target install
+mkdir -p $build_dir
+cp -r $source_dir/* $build_dir
+cd $build_dir/src
+./configure --prefix=$install_dir --with-MPI --enable-bigint --enable-shared
+make -j$(($(nproc) - 1))
+make install
+cd -

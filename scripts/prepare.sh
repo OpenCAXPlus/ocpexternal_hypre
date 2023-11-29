@@ -2,12 +2,12 @@
 # You should modify this script to prepare the folder structure for external project source codes
 # The source code must be in ocp/external/external_id/version/source folder
 # get command line arguments
-version=${1}
-external_id=${2}
+version=${1:-"2.28.0"}
+external_id=${2:-"hypre"}
 download=${3:-"nodownload"}
 
 # prepare necessary variables
-url="https://github.com/gabime/spdlog/archive/refs/tags/v$version.tar.gz"
+url="https://github.com/hypre-space/hypre/archive/refs/tags/v$version.tar.gz"
 dir="ocp/external/$external_id/$version/source"
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 gz_file="$external_id-v$version.tar.gz"
