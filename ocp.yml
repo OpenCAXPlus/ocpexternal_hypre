@@ -38,3 +38,16 @@ configurations: # list of configs that is referred in by the versions
   - id: "default" # if no dependencies are listed, then use the default value
     run: configurations/default # must have a run to specify which script to run
     arguments: ["@version","@uid"]
+environment:
+  - id: "intel"
+    variables:
+      - id: "CC"
+        value: "mpiicx"
+      - id: "CXX"
+        value: "mpiicpx"
+      - id: "FC"
+        value: "ifort"
+      - id: "F77"
+        value: "ifort"
+      - id: "F90"
+        value: "ifort"

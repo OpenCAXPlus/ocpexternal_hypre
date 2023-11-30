@@ -1,0 +1,3 @@
+export OCP_CC=mpiicx
+export OCP_CXX=mpiicpx
+export OCP_COMPILER=intel
